@@ -12,15 +12,26 @@ function pokemon(n,v,a,g)
 
 function inicio()
 {
-	var opcionNombre = ["Pikachu","Totodile"];
-	var opcionGrito = ["Pikaaa","Tototodilee"];
-	opcionUsuario = prompt("Que Pokemon eliges: \n Pikachu: 0 \n Totodile: 1", 0);
+	var pikachu = new pokemon("Pikachu",50,22);
+	var totodile = new pokemon("Totodile",52,20);
+	pikachu.grito = "Pikaaa!";
+	totodile.grito = "Tototodilee!";
 
-	if(opcionNombre[opcionUsuario] == Pikachu)
+	var elija = prompt("Elija un Pokemon: \n Pikachu: 0 \n Totodile: 1", 0);
+
+	if(elija == 0) 
 	{
-		var opcionPokemon = new pokemon(opcionNombre[opcionUsuario], 50, 25, opcionGrito[opcionUsuario]);
-		nombrePokemon.innerText = opcionPokemon.nombre;
-		document.write("<img src=imagenes/pikachu.png/>");
-		datosPokemon.innerText = "El nombre del Pokemon es: " + opcionPokemon.nombre + "La vida del Pokemon es: " + opcionPokemon.vida + "El ataque del Pokemon es: " + opcionPokemon.ataque;
+		nombrePokemon.textContent = pikachu.nombre;
+		datosPokemon.textContent = "La vida del pokemon es: " + pikachu.vida + " El ataque del pokemon es: " + pikachu.ataque + " Su grito es: " + pikachu.grito;
+		document.write("<img src=imagenes/pikachu.png>");
+		pikachu.gritar();
+	}
+
+	if(elija == 1)
+	{
+		nombrePokemon.textContent = totodile.nombre;
+		datosPokemon.textContent = "La vida del pokemon es: " + totodile.vida + " El ataque del pokemon es: " + totodile.ataque + " Su grito es: " + totodile.grito;
+		document.write("<img src=imagenes/totodile.png>");
+		totodile.gritar();
 	}
 }
